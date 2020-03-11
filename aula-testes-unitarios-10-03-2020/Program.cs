@@ -40,6 +40,8 @@ namespace aula_testes_unitarios_10_03_2020
             => new List<ItemMenu>
             {
                 new ItemMenu("Login"),
+                new ItemMenu("Cadastro"),
+                 new ItemMenu("Alterar Senha"),
             };
 
         private static void Executar(int valorOpcao)
@@ -64,8 +66,15 @@ namespace aula_testes_unitarios_10_03_2020
             if (item.Titulo.Equals("Login"))
                 return new LoginService(_usuarioRepositorio);
 
+            if (item.Titulo.Equals("Cadastro"))
+                return new CadastroService(_usuarioRepositorio);
+
+            if (item.Titulo.Equals("Alterar Senha"))
+                return new AlterarSenhaService(_usuarioRepositorio);
+
             return null;
         }
+        
 
         private static void ImprimirMenuItems(IList<ItemMenu> itensMenu)
         {
